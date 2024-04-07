@@ -1,0 +1,33 @@
+[gd_scene load_steps=7 format=3 uid="uid://6lo5konfwog8"]
+
+[ext_resource type="Script" path="res://player.cs" id="1_e20rq"]
+[ext_resource type="PackedScene" uid="uid://75hea4yj33cf" path="res://mouse_input_handler.tscn" id="2_che1n"]
+[ext_resource type="PackedScene" uid="uid://d3enqliobu6cg" path="res://Scenes/wasd_input_movement.tscn" id="3_dulvt"]
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_yqm2w"]
+
+[sub_resource type="CapsuleMesh" id="CapsuleMesh_mmj82"]
+
+[sub_resource type="BoxMesh" id="BoxMesh_btiu8"]
+
+[node name="Player" type="CharacterBody3D"]
+transform = Transform3D(1, 0.000492969, 0.000277972, -0.000492824, 1, -0.000492973, -0.000278229, 0.000492828, 1, 0.161823, -0.112726, 0.152519)
+script = ExtResource("1_e20rq")
+
+[node name="PlayerCollision" type="CollisionShape3D" parent="."]
+shape = SubResource("CapsuleShape3D_yqm2w")
+
+[node name="PlayerModel" type="MeshInstance3D" parent="."]
+mesh = SubResource("CapsuleMesh_mmj82")
+
+[node name="MouseInput" parent="." instance=ExtResource("2_che1n")]
+
+[node name="WASDInput" parent="." instance=ExtResource("3_dulvt")]
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+transform = Transform3D(0.1, 0, 0, 0, 0.1, 0, 0, 0, 1, -1.38283e-05, -0.00664818, 0.855504)
+mesh = SubResource("BoxMesh_btiu8")
+
+[node name="FPCamera" type="Camera3D" parent="."]
+transform = Transform3D(1, -7.89095e-09, 1.41154e-08, -1.00258e-10, 1, 7.85803e-09, 5.82077e-11, 0, 1, -0.000242323, 0.491694, -0.000242382)
+visible = false
