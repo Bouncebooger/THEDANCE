@@ -14,6 +14,7 @@ public partial class player : CharacterBody3D
     private mouse_input_handler MouseIn;
     private wasd_input_movement WasdIn;
     private Camera3D FPCamera;
+    private fp_movement FPMovement;
     private Vector2 DeltaMouse;
     public override void _Ready()
     {
@@ -21,11 +22,14 @@ public partial class player : CharacterBody3D
         MouseIn = GetNode<mouse_input_handler>("MouseInput");
         WasdIn = GetNode<wasd_input_movement>("WasdInput");
         FPCamera = GetNode<Camera3D>("FPCamera");
+        FPMovement = GetNode<fp_movement>("FPMovement");
       //
           if (CameraForward)
           {
             MouseIn.mousemotion += ApplySensitivity;
+            WasdIn.MovementAxes += PlayerMove;
           }
+
           
         
     }
@@ -33,10 +37,11 @@ public partial class player : CharacterBody3D
     {
 
         DeltaMouse =  new Vector2 (deltax, deltay) * MouseSensitivity;
-        GD.Print("DeltaMouse", DeltaMouse);
+   //     GD.Print("DeltaMouse", DeltaMouse);
     }
-    private void CameraOnlyRotation()
+    private void PlayerMove(float XAxis, float YAxis)
     {
+        FPMovement.MoveRelative(this, XAxis, YAxis);
         
     }
     
@@ -45,7 +50,7 @@ public partial class player : CharacterBody3D
     {
 
         //Currently this does a rotate body with camera around y
-        GD.Print("DeltaDoom", DeltaMouse);
+     //   GD.Print("DeltaDoom", DeltaMouse);
         var DeltaDeltaMouse = DeltaMouse * Convert.ToSingle(delta);
         FPCamera.RotateX(-DeltaDeltaMouse.Y);
        // FPCamera.RotationDegrees = new Vector3( Mathf.Clamp(FPCamera.RotationDegrees.X,

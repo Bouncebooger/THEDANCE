@@ -8,3 +8,4 @@
 
 [node name="Camera3D" type="Camera3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 0.849092, 0.528246, 0, -0.528246, 0.849092, 0, 5.87024, 5)
+current = true
