@@ -11,6 +11,8 @@ public partial class player : CharacterBody3D
     private float RotationClamp = 70f;
     [Export]
     private float MouseSensitivity = 0.2f;
+    [Export]
+    private Vector3 GravityVal = new Vector3(0,8.69f,0);
     private mouse_input_handler MouseIn;
     private wasd_input_movement WasdIn;
     private Camera3D FPCamera;
@@ -41,6 +43,7 @@ public partial class player : CharacterBody3D
     }
     private void PlayerMove(float XAxis, float YAxis)
     {
+         
         FPMovement.MoveRelative(this, XAxis, YAxis);
         
     }
@@ -68,5 +71,11 @@ public partial class player : CharacterBody3D
         GD.Print(this.GlobalBasis, " Global basis \n");
       */
 
+    }
+    public override void _PhysicsProcess(double delta)
+    {
+     
+        this.Velocity = this.Velocity -=( GravityVal * Convert.ToSingle(delta));
+        this.MoveAndSlide();
     }
 }
