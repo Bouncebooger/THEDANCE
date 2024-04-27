@@ -1,3 +1,6 @@
-[gd_scene format=3 uid="uid://b6ebutogvduja"]
+[gd_scene load_steps=2 format=3 uid="uid://b6ebutogvduja"]
+
+[ext_resource type="Script" path="res://object_pick_3D.cs" id="1_owj7u"]
 
 [node name="3DObjectPick" type="Node"]
+script = ExtResource("1_owj7u")

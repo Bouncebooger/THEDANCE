@@ -18,6 +18,9 @@ public partial class player : CharacterBody3D
     private Camera3D FPCamera;
     private fp_movement FPMovement;
     private Vector2 DeltaMouse;
+
+   
+
     public override void _Ready()
     {
         base._Ready();
@@ -25,15 +28,20 @@ public partial class player : CharacterBody3D
         WasdIn = GetNode<wasd_input_movement>("WasdInput");
         FPCamera = GetNode<Camera3D>("FPCamera");
         FPMovement = GetNode<fp_movement>("FPMovement");
-      //
+      //Below is a remnant of when was stunlocked thinking about a universally applicable player for any game
           if (CameraForward)
           {
             MouseIn.mousemotion += ApplySensitivity;
+            MouseIn.Lmousejustpressed += RayCastAction;
             WasdIn.MovementAxes += PlayerMove;
           }
 
-          
+        //Temporary  mouse capture, will change when I run into an aspect of the game that requires 
+        // changing mouse modes
         
+        Input.MouseMode = Input.MouseModeEnum.Captured ;
+       
+       
     }
     private void ApplySensitivity(float deltax, float deltay)
     {
@@ -47,6 +55,12 @@ public partial class player : CharacterBody3D
         FPMovement.MoveRelative(this, XAxis, YAxis);
         
     }
+
+    private void RayCastAction(Vector2 clickpos)
+    {
+       // FPCamera.p
+    }
+    
     
 
     public override void _Process(double delta)

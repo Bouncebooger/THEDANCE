@@ -31,6 +31,5 @@ mesh = SubResource("BoxMesh_btiu8")
 
 [node name="FPCamera" type="Camera3D" parent="."]
 transform = Transform3D(1, -7.89095e-09, 1.41154e-08, -1.00258e-10, 1, 7.85803e-09, 5.82077e-11, 0, 1, -0.000242323, 0.491694, -0.000242382)
-visible = false
 
 [node name="FPMovement" parent="." instance=ExtResource("4_75qwa")]
