@@ -17,8 +17,11 @@ public partial class player : CharacterBody3D
     private wasd_input_movement WasdIn;
     private Camera3D FPCamera;
     private fp_movement FPMovement;
+    private object_pick_3D ObjQuery ;
     private Vector2 DeltaMouse;
 
+    //
+    private PhysicsRayQueryParameters3D Cacheparam;
    
 
     public override void _Ready()
@@ -28,11 +31,12 @@ public partial class player : CharacterBody3D
         WasdIn = GetNode<wasd_input_movement>("WasdInput");
         FPCamera = GetNode<Camera3D>("FPCamera");
         FPMovement = GetNode<fp_movement>("FPMovement");
+        ObjQuery = GetNode<object_pick_3D>("TempLMMech");
       //Below is a remnant of when was stunlocked thinking about a universally applicable player for any game
           if (CameraForward)
           {
             MouseIn.mousemotion += ApplySensitivity;
-            MouseIn.Lmousejustpressed += RayCastAction;
+            MouseIn.Lmousejustpressed += FPRayCast;
             WasdIn.MovementAxes += PlayerMove;
           }
 
@@ -56,9 +60,12 @@ public partial class player : CharacterBody3D
         
     }
 
-    private void RayCastAction(Vector2 clickpos)
+    private void FPRayCast(Vector2 clickpos)
     {
-       // FPCamera.p
+        Cacheparam.From = FPCamera.ProjectRayOrigin(clickpos);
+        Cacheparam.To = Cacheparam.From+ FPCamera.ProjectRayNormal(clickpos) * 10;
+            
+        ObjQuery.PerspRayQuery(Cacheparam);
     }
     
     

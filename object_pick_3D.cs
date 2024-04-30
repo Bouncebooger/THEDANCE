@@ -1,7 +1,7 @@
 using Godot;
 using System;
 
-public partial class object_pick_3D : Node
+public partial class object_pick_3D : Node3D
 {
 	// Called when the node enters the scene tree for the first time.
 	public override void _Ready()
@@ -18,7 +18,16 @@ public partial class object_pick_3D : Node
 
 	}
 
-  //  public  PhysicsRayQueryParameters3D () 
+    public  Godot.Collections.Dictionary PerspRayQuery(PhysicsRayQueryParameters3D funny)
+	{
+
+		var space = GetWorld3D().DirectSpaceState;
+		return space.IntersectRay(funny);
+	}
+	
+	
+
+	
 
     //WANT THIS TO
     //TOGGLE ON FOR CONSTANT RAYCAST

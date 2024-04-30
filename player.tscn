@@ -1,9 +1,10 @@
-[gd_scene load_steps=8 format=3 uid="uid://6lo5konfwog8"]
+[gd_scene load_steps=9 format=3 uid="uid://6lo5konfwog8"]
 
 [ext_resource type="Script" path="res://player.cs" id="1_e20rq"]
 [ext_resource type="PackedScene" uid="uid://75hea4yj33cf" path="res://Scenes/mouse_input_handler.tscn" id="2_e6t8e"]
 [ext_resource type="PackedScene" uid="uid://d3enqliobu6cg" path="res://Scenes/wasd_input_movement.tscn" id="3_dulvt"]
 [ext_resource type="PackedScene" uid="uid://pggssn4djxx2" path="res://fp_movement.tscn" id="4_75qwa"]
+[ext_resource type="PackedScene" uid="uid://b6ebutogvduja" path="res://3d_object_pick.tscn" id="5_ooh4f"]
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_yqm2w"]
 
@@ -33,3 +34,5 @@ mesh = SubResource("BoxMesh_btiu8")
 transform = Transform3D(1, -7.89095e-09, 1.41154e-08, -1.00258e-10, 1, 7.85803e-09, 5.82077e-11, 0, 1, -0.000242323, 0.491694, -0.000242382)
 
 [node name="FPMovement" parent="." instance=ExtResource("4_75qwa")]
+
+[node name="TempLMMech" parent="." instance=ExtResource("5_ooh4f")]

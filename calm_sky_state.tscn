@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3 uid="uid://bas3m2j15j0e1"]
+
+[ext_resource type="Script" path="res://calm_sky_state.cs" id="1_r0w33"]
+
+[node name="CalmSkyState" type="Node"]
+script = ExtResource("1_r0w33")

@@ -1,0 +1,3 @@
+[gd_scene format=3 uid="uid://cxb1nfruuor0q"]
+
+[node name="GameWorld" type="Node3D"]

@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3 uid="uid://54m8yasjuxuv"]
+
+[ext_resource type="Script" path="res://StateMachineTool/virtual_state_machine_class.cs" id="1_bwfk5"]
+
+[node name="VirtualStateMachineClass" type="Node"]
+script = ExtResource("1_bwfk5")

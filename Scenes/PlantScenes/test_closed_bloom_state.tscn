@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3 uid="uid://dsoolfw603i1q"]
+
+[ext_resource type="Script" path="res://Scenes/PlantScenes/test_closed_bloom_state.cs" id="1_y3btq"]
+
+[node name="TestClosedBloomState" type="Node"]
+script = ExtResource("1_y3btq")
