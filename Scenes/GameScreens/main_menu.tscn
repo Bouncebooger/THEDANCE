@@ -1,0 +1,34 @@
+[gd_scene load_steps=2 format=3 uid="uid://bma5jakkrf2oo"]
+
+[ext_resource type="PackedScene" uid="uid://d0ca5jj7tgaug" path="res://Scenes/UIComponents/to_game_button.tscn" id="1_ysw36"]
+
+[node name="MainMenu" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="ToGameButton" parent="." instance=ExtResource("1_ysw36")]
+layout_mode = 1
+offset_left = 508.0
+offset_top = 364.0
+offset_right = -553.0
+offset_bottom = -253.0
+
+[node name="TDTitle" type="Label" parent="."]
+layout_mode = 0
+offset_left = 498.0
+offset_top = 236.0
+offset_right = 538.0
+offset_bottom = 259.0
+text = "\"The  Dance\" Prototype"
+
+[node name="FunnySplash" type="Label" parent="."]
+layout_mode = 0
+offset_left = 638.0
+offset_top = 280.0
+offset_right = 810.0
+offset_bottom = 303.0
+text = "Now with \"gameplay\"!"

@@ -1,6 +1,6 @@
 [gd_scene load_steps=2 format=3 uid="uid://pggssn4djxx2"]
 
-[ext_resource type="Script" path="res://fp_movement.cs" id="1_jerkw"]
+[ext_resource type="Script" path="res://Scenes/PlayerComponents/fp_movement.cs" id="1_jerkw"]
 
 [node name="FPMovement" type="Node"]
 script = ExtResource("1_jerkw")

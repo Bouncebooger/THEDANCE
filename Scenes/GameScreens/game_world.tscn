@@ -1,0 +1,10 @@
+[gd_scene load_steps=3 format=3 uid="uid://cxb1nfruuor0q"]
+
+[ext_resource type="PackedScene" uid="uid://bg16l3agbb558" path="res://Scenes/UIComponents/ui_canvas_layer.tscn" id="1_evvp7"]
+[ext_resource type="PackedScene" uid="uid://cwn3pd87wecl8" path="res://Scenes/GameScreens/test_scene.tscn" id="2_5cfmw"]
+
+[node name="GameWorld" type="Node3D"]
+
+[node name="UICanvasLayer" parent="." instance=ExtResource("1_evvp7")]
+
+[node name="TestScene" parent="." instance=ExtResource("2_5cfmw")]

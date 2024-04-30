@@ -8,9 +8,9 @@ public partial class virtual_state_machine_class : Node
 {
 	// Called when the node enters the scene tree for the first time.
 	[Export]
-	private NodePath InitState;
-	private virtual_state_class CurrentState;
-	private Dictionary<string, virtual_state_class> StateList;
+	protected NodePath InitState;
+	protected virtual_state_class CurrentState;
+	protected Dictionary<string, virtual_state_class> StateList;
 	public override void _Ready()
 	{
 		StateList = new Dictionary<string, virtual_state_class>();

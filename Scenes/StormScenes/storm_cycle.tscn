@@ -1,3 +1,7 @@
-[gd_scene format=3 uid="uid://by73sbgfol5"]
+[gd_scene load_steps=2 format=3 uid="uid://by73sbgfol5"]
+
+[ext_resource type="PackedScene" uid="uid://crqdvgi03xpck" path="res://Scenes/StormScenes/storm_fsm.tscn" id="1_6w7ka"]
 
 [node name="StormCycle" type="Node"]
+
+[node name="StormFSM" parent="." instance=ExtResource("1_6w7ka")]

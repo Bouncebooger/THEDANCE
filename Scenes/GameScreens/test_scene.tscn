@@ -1,15 +1,15 @@
 [gd_scene load_steps=3 format=3 uid="uid://cwn3pd87wecl8"]
 
-[ext_resource type="PackedScene" uid="uid://6lo5konfwog8" path="res://player.tscn" id="1_ks7hu"]
+[ext_resource type="PackedScene" uid="uid://6lo5konfwog8" path="res://Scenes/PlayerComponents/player.tscn" id="1_ks7hu"]
 [ext_resource type="PackedScene" uid="uid://d1yp76ceokdwk" path="res://Scenes/prototyping_platform.tscn" id="2_wdcsq"]
 
 [node name="TestScene" type="Node3D"]
 
 [node name="Player" parent="." instance=ExtResource("1_ks7hu")]
-transform = Transform3D(1, -1.49012e-08, -2.23517e-08, -7.45058e-09, 1, -2.98023e-08, 0, -2.98023e-08, 1, 0.161823, 1.54806, 0.152519)
+transform = Transform3D(1, -1.49012e-08, -2.23517e-08, -7.45058e-09, 1, -2.98023e-08, 0, -2.98023e-08, 1, 0.220806, 1.50417, 0.171515)
 
 [node name="PrototypingPlatform" parent="." instance=ExtResource("2_wdcsq")]
 
-[node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
+[node name="WorldLight" type="DirectionalLight3D" parent="."]
 transform = Transform3D(-0.834733, 0, 0.550656, 0.411958, 0.663561, 0.624482, -0.365393, 0.748122, -0.553896, 0, 7, 0)
 light_energy = 6.27
