@@ -1,3 +1,11 @@
-[gd_scene format=3 uid="uid://7ynhwaa37tuw"]
+[gd_scene load_steps=2 format=3 uid="uid://7ynhwaa37tuw"]
+
+[ext_resource type="Script" path="res://Scenes/StormScenes/salt_storm_state.cs" id="1_84fsc"]
 
 [node name="SaltStormState" type="Node"]
+script = ExtResource("1_84fsc")
+
+[node name="Timer" type="Timer" parent="."]
+wait_time = 2.0
+
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

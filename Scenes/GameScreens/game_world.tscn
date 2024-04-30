@@ -1,10 +1,15 @@
-[gd_scene load_steps=3 format=3 uid="uid://cxb1nfruuor0q"]
+[gd_scene load_steps=5 format=3 uid="uid://cxb1nfruuor0q"]
 
 [ext_resource type="PackedScene" uid="uid://bg16l3agbb558" path="res://Scenes/UIComponents/ui_canvas_layer.tscn" id="1_evvp7"]
+[ext_resource type="Script" path="res://Scenes/GameScreens/game_world.cs" id="1_lqxhx"]
 [ext_resource type="PackedScene" uid="uid://cwn3pd87wecl8" path="res://Scenes/GameScreens/test_scene.tscn" id="2_5cfmw"]
+[ext_resource type="PackedScene" uid="uid://by73sbgfol5" path="res://Scenes/StormScenes/storm_cycle.tscn" id="4_cdbum"]
 
 [node name="GameWorld" type="Node3D"]
+script = ExtResource("1_lqxhx")
 
 [node name="UICanvasLayer" parent="." instance=ExtResource("1_evvp7")]
 
 [node name="TestScene" parent="." instance=ExtResource("2_5cfmw")]
+
+[node name="StormCycle" parent="." instance=ExtResource("4_cdbum")]

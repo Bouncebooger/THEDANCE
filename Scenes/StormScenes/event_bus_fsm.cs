@@ -15,12 +15,15 @@ public partial class event_bus_fsm : virtual_state_machine_class
         StateList = new Dictionary<string, virtual_state_class>();
         foreach (Node node in GetChildren())
         {
+         
             if (node is virtual_state_class s)
             {
+
                 StateList[node.Name] = s;
                 s.fsm = this;
                 s.ReadyState();
                 s.ExitState();
+                //GD.Print("Name:", StateList[node.Name]);
             }
         }
         CurrentState = GetNode<virtual_state_class>(InitState);
@@ -28,13 +31,15 @@ public partial class event_bus_fsm : virtual_state_machine_class
     }
     public override void Transition(string targetkey)
 	{
-		if (!StateList.ContainsKey(targetkey) || CurrentState == StateList[targetkey])
+
+        if (!StateList.ContainsKey(targetkey) || CurrentState == StateList[targetkey])
 		{
 			return;
 		}
 		CurrentState.ExitState();
-        SEB.EmitSignal(scene_event_bus_autoload.SignalName.StormCycled);
+        SEB.EmitSignal(scene_event_bus_autoload.SignalName.StormCycled, targetkey);
 		CurrentState = StateList[targetkey];
 		CurrentState.EnterState();
+
 	}
 }

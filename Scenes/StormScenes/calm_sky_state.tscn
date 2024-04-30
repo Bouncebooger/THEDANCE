@@ -4,3 +4,8 @@
 
 [node name="CalmSkyState" type="Node"]
 script = ExtResource("1_r0w33")
+
+[node name="Timer" type="Timer" parent="."]
+wait_time = 2.0
+
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

@@ -1,6 +1,13 @@
-[gd_scene load_steps=2 format=3 uid="uid://crqdvgi03xpck"]
+[gd_scene load_steps=4 format=3 uid="uid://crqdvgi03xpck"]
 
-[ext_resource type="Script" path="res://StateMachineTool/virtual_state_machine_class.cs" id="1_oe3mf"]
+[ext_resource type="Script" path="res://Scenes/StormScenes/event_bus_fsm.cs" id="1_s22yj"]
+[ext_resource type="PackedScene" uid="uid://7ynhwaa37tuw" path="res://Scenes/StormScenes/salt_storm_state.tscn" id="2_hgvga"]
+[ext_resource type="PackedScene" uid="uid://bas3m2j15j0e1" path="res://Scenes/StormScenes/calm_sky_state.tscn" id="3_ke6sd"]
 
 [node name="StormFSM" type="Node"]
-script = ExtResource("1_oe3mf")
+script = ExtResource("1_s22yj")
+InitState = NodePath("CalmSky")
+
+[node name="SaltStorm" parent="." instance=ExtResource("2_hgvga")]
+
+[node name="CalmSky" parent="." instance=ExtResource("3_ke6sd")]
