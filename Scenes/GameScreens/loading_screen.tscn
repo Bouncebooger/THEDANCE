@@ -1,6 +1,7 @@
 [gd_scene format=3 uid="uid://bor8ne812qdps"]
 
 [node name="LoadingScreen" type="Node2D"]
+visible = false
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 

@@ -25,11 +25,18 @@ public partial class player : CharacterBody3D
     //
     private PhysicsRayQueryParameters3D Cacheparam;
     private Godot.Collections.Dictionary ground;
+    //  private scene_event_bus_autoload SEB;
+    //Lord forgive me for what im doin
+    private Node3D parentscene;
+    private PackedScene proplant;
 
     public override void _Ready()
     {
         base._Ready();
-        
+        carryingplant = false;
+        proplant = ResourceLoader.Load<PackedScene>("res://Scenes/PlantScenes/protection_plant.tscn");
+        //  SEB = GetNode<scene_event_bus_autoload>("/root/SceneEventBusAutoload");
+        parentscene = GetNode<Node3D>("/root/Main/GameWorld/TestScene");
         Cacheparam = new PhysicsRayQueryParameters3D();
         Cacheparam.To = this.GlobalPosition* new Vector3(0,-10,0);
         Cacheparam.From = this.GlobalPosition;
@@ -75,12 +82,36 @@ public partial class player : CharacterBody3D
         Cacheparam.To = Cacheparam.From+ FPCamera.ProjectRayNormal(clickpos) * 10;
        var gotdictionary = ObjQuery.PerspRayQuery(Cacheparam);
         //  GD.Print(gotdictionary["collider"], " is equal to?? ", ground["collider"]);
-
-        if((GD.VarToStr(gotdictionary["collider"])==GD.VarToStr(ground["collider"]))&&carryingplant);
+        GD.Print(carryingplant);
+        if (gotdictionary.Count == 0)
+        {
+            return;
+        }
+        if((GD.VarToStr(gotdictionary["collider"])==GD.VarToStr(ground["collider"]))  );
        {
-
-           // GD.Print("yippeee");
+            if (carryingplant == true)
+            {
+                Node3D plantmade = proplant.Instantiate<Node3D>();
+                parentscene.AddChild(plantmade);
+                plantmade.GlobalPosition = (gotdictionary["position"].AsVector3());
+                //    GD.Print(plantmade.GlobalPosition,"position passed");
+                //     GD.Print(parentscene.GetChildCount(), " children before");
+                //  parentscene.AddChild(plantmade);
+                //   GD.Print(parentscene.GetChildCount(),  " children after");
+                // GD.Print("yippeee");
+                carryingplant = false;
+            }
+            else
+            {
+             //   return;
+            }
       }
+        GD.Print("gets before seebox check", (gotdictionary["collider"]).AsString().Remove(7));
+        if ((gotdictionary["collider"]).AsString().Remove(7) == "SeedBox")
+        {
+            GD.Print("passes seedbox");
+            carryingplant = true;
+        }
       //  ObjQuery.PerspRayQuery(Cacheparam);
     }
     

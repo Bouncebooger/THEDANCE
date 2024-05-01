@@ -10,7 +10,7 @@ public partial class WorldLight : DirectionalLight3D
 	public override void _Ready()
 	{
 		SaltColor = new Color(0.46f, 0.46f, 0.112f);
-		CalmColor = new Color(0f, 0f, 0f);
+		CalmColor = new Color(0.14f, 0.112f, 0.416f);
         scene_event_bus_autoload SEB = GetNode<scene_event_bus_autoload>("/root/SceneEventBusAutoload");
 		SEB.StormCycled += StormHue; 
     }

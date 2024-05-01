@@ -9,6 +9,8 @@ public partial class scene_event_bus_autoload : Node
 	public delegate void ToGameSceneEventHandler();
 	[Signal]
 	public delegate void StormCycledEventHandler(string StormType);
+	//[Signal]
+	//public delegate void PlantingEventHandler(); 
 	public override void _Ready() 
 	{
 		GD.Print("hello");

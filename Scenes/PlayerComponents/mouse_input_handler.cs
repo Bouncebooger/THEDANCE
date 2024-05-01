@@ -29,7 +29,10 @@ public partial class mouse_input_handler : Node
 		}
 		if (inputevent is InputEventMouseButton mouseclick)
 		{
-			EmitSignal(SignalName.Lmousejustpressed,mouseclick.GlobalPosition);
+			if (mouseclick.IsActionPressed("TogglePlacement"))
+			{
+				EmitSignal(SignalName.Lmousejustpressed, mouseclick.GlobalPosition);
+			}
 		}
 	}
 	

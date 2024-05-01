@@ -1,12 +1,9 @@
-[gd_scene load_steps=6 format=3 uid="uid://cwn3pd87wecl8"]
+[gd_scene load_steps=5 format=3 uid="uid://cwn3pd87wecl8"]
 
 [ext_resource type="PackedScene" uid="uid://6lo5konfwog8" path="res://Scenes/PlayerComponents/player.tscn" id="1_ks7hu"]
 [ext_resource type="PackedScene" uid="uid://d1yp76ceokdwk" path="res://Scenes/prototyping_platform.tscn" id="2_wdcsq"]
 [ext_resource type="Script" path="res://Scenes/GameScreens/WorldLight.cs" id="3_h7h1j"]
-
-[sub_resource type="BoxShape3D" id="BoxShape3D_gwxfu"]
-
-[sub_resource type="BoxMesh" id="BoxMesh_8usl0"]
+[ext_resource type="PackedScene" uid="uid://cc4aj8rp5vjk8" path="res://Scenes/UIComponents/seed_box.tscn" id="4_5j6b1"]
 
 [node name="TestScene" type="Node3D"]
 
@@ -20,11 +17,5 @@ transform = Transform3D(-0.834733, 6.21924e-07, 0.550655, 0.411958, 0.663561, 0.
 light_color = Color(0.180392, 0.180392, 0.439216, 1)
 script = ExtResource("3_h7h1j")
 
-[node name="StaticBody3D" type="StaticBody3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0203085, 1.4118, 2.96727)
-
-[node name="CollisionShape3D" type="CollisionShape3D" parent="StaticBody3D"]
-shape = SubResource("BoxShape3D_gwxfu")
-
-[node name="MeshInstance3D" type="MeshInstance3D" parent="StaticBody3D"]
-mesh = SubResource("BoxMesh_8usl0")
+[node name="SeedBox" parent="." instance=ExtResource("4_5j6b1")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.1589, -1.99222)
