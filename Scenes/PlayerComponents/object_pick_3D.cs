@@ -22,6 +22,7 @@ public partial class object_pick_3D : Node3D
 	{
 
 		var space = GetWorld3D().DirectSpaceState;
+		
 		return space.IntersectRay(funny);
 	}
 	

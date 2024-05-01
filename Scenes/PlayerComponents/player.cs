@@ -1,5 +1,6 @@
 using Godot;
 using System;
+using Godot.Collections;
 
 public partial class player : CharacterBody3D
 {
@@ -19,21 +20,28 @@ public partial class player : CharacterBody3D
     private fp_movement FPMovement;
     private object_pick_3D ObjQuery ;
     private Vector2 DeltaMouse;
+    private bool carryingplant;
 
     //
     private PhysicsRayQueryParameters3D Cacheparam;
-   
+    private Godot.Collections.Dictionary ground;
 
     public override void _Ready()
     {
         base._Ready();
+        
+        Cacheparam = new PhysicsRayQueryParameters3D();
+        Cacheparam.To = this.GlobalPosition* new Vector3(0,-10,0);
+        Cacheparam.From = this.GlobalPosition;
+       
         MouseIn = GetNode<mouse_input_handler>("MouseInput");
         WasdIn = GetNode<wasd_input_movement>("WasdInput");
         FPCamera = GetNode<Camera3D>("FPCamera");
         FPMovement = GetNode<fp_movement>("FPMovement");
         ObjQuery = GetNode<object_pick_3D>("TempLMMech");
-      //Below is a remnant of when was stunlocked thinking about a universally applicable player for any game
-          if (CameraForward)
+        ground = ObjQuery.PerspRayQuery(Cacheparam);
+        //Below is a remnant of when was stunlocked thinking about a universally applicable player for any game
+        if (CameraForward)
           {
             MouseIn.mousemotion += ApplySensitivity;
             MouseIn.Lmousejustpressed += FPRayCast;
@@ -62,10 +70,18 @@ public partial class player : CharacterBody3D
 
     private void FPRayCast(Vector2 clickpos)
     {
+        GD.Print("got to cast");
         Cacheparam.From = FPCamera.ProjectRayOrigin(clickpos);
         Cacheparam.To = Cacheparam.From+ FPCamera.ProjectRayNormal(clickpos) * 10;
-            
-        ObjQuery.PerspRayQuery(Cacheparam);
+       var gotdictionary = ObjQuery.PerspRayQuery(Cacheparam);
+        //  GD.Print(gotdictionary["collider"], " is equal to?? ", ground["collider"]);
+
+        if((GD.VarToStr(gotdictionary["collider"])==GD.VarToStr(ground["collider"]))&&carryingplant);
+       {
+
+           // GD.Print("yippeee");
+      }
+      //  ObjQuery.PerspRayQuery(Cacheparam);
     }
     
     

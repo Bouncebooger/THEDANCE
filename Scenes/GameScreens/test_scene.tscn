@@ -21,7 +21,7 @@ light_color = Color(0.180392, 0.180392, 0.439216, 1)
 script = ExtResource("3_h7h1j")
 
 [node name="StaticBody3D" type="StaticBody3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.47941, 2.99995)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0203085, 1.4118, 2.96727)
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="StaticBody3D"]
 shape = SubResource("BoxShape3D_gwxfu")

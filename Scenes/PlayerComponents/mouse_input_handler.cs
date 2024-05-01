@@ -27,9 +27,9 @@ public partial class mouse_input_handler : Node
 		//	GD.Print("Hello");
 			EmitSignal(SignalName.mousemotion, mousemoved.Relative.X, mousemoved.Relative.Y);
 		}
-		if (Input.IsActionJustPressed("TogglePlacement"))
+		if (inputevent is InputEventMouseButton mouseclick)
 		{
-			EmitSignal(SignalName.Lmousejustpressed);
+			EmitSignal(SignalName.Lmousejustpressed,mouseclick.GlobalPosition);
 		}
 	}
 	
